@@ -1,0 +1,101 @@
+<div align=center><img width="240" height="240" alt="Logo was Loading Faild!" src="https://raw.githubusercontent.com/go-pay/gopay/main/logo.png"/></div>
+
+# gopay
+
+### 微信、支付宝、PayPal、QQ 的 Golang 版本SDK
+
+[![Github](https://img.shields.io/github/followers/iGoogle-ink?label=Follow&style=social)](https://github.com/iGoogle-ink)
+[![Github](https://img.shields.io/github/forks/go-pay/gopay?label=Fork&style=social)](https://gopay/fork)
+
+[![Golang](https://img.shields.io/badge/golang-1.16-brightgreen.svg)](https://golang.google.cn)
+[![GoDoc](https://img.shields.io/badge/doc-pkg.go.dev-informational.svg)](https://pkg.go.dev/gopay)
+[![Drone CI](https://cloud.drone.io/api/badges/go-pay/gopay/status.svg)](https://cloud.drone.io/go-pay/gopay)
+[![GitHub Release](https://img.shields.io/github/v/release/go-pay/gopay)](https://gopay/releases)
+[![License](https://img.shields.io/github/license/go-pay/gopay)](https://www.apache.org/licenses/LICENSE-2.0)
+[![GoDoc](https://tokei.rs/b1/gopay)](https://gopay)
+
+---
+
+# 一、安装
+
+```bash
+go get -u gopay
+```
+
+#### 查看 gopay 版本
+
+  [版本更新记录](https://gopay/blob/main/release_note.txt)
+
+```go
+import (
+    "github.com/pengkebao/gopay"
+    "github.com/pengkebao/gopay/pkg/xlog"
+)
+
+func main() {
+    xlog.Info("github.com/pengkebao/gopay Version: ", gopay.Version)
+}
+```
+
+---
+
+<br>
+
+# 二、文档目录
+
+> ### 点击查看不同支付方式的使用文档。方便的话，请留下您认可的小星星，十分感谢！
+
+* #### [Alipay](https://gopay/blob/main/doc/alipay.md)
+* #### [Wechat](https://gopay/blob/main/doc/wechat_v3.md)
+* #### [QQ](https://gopay/blob/main/doc/qq.md)
+* #### [Paypal](https://gopay/blob/main/doc/paypal.md)
+* #### [Apple](https://gopay/blob/main/doc/apple.md)
+
+---
+
+<br>
+
+# 三、其他说明
+
+* 各支付方式接入，请仔细查看 `xxx_test.go` 使用方式
+    * `gopay/wechat/v3/client_test.go`
+    * `gopay/alipay/client_test.go`
+    * `gopay/qq/client_test.go`
+    * `gopay/paypal/client_test.go`
+    * `gopay/apple/verify_test.go`
+    * 或 examples
+* 有问题请加QQ群（加群验证答案：gopay），或加微信好友拉群。在此，非常感谢提出宝贵意见和反馈问题的同志们！
+* 开发过程中，请尽量使用正式环境，1分钱测试法！
+* 承接各类业务外包项目开发（前端+后端，架构设计->系统开发->部署运营），行业经验丰富，费用合理，有需要的加微信联系。
+
+QQ群：
+<img width="280" height="280" src="https://raw.githubusercontent.com/go-pay/gopay/main/qq_gopay.png"/>
+加微信拉群：
+<img width="280" height="280" src="https://raw.githubusercontent.com/go-pay/gopay/main/wechat_jerry.png"/>
+
+---
+
+<br>
+
+## 赞赏多少是您的心意，感谢支持！
+
+微信赞赏码： <img width="200" height="200" src="https://raw.githubusercontent.com/go-pay/gopay/main/zanshang.png"/>
+支付宝赞助码： <img width="200" height="200" src="https://raw.githubusercontent.com/go-pay/gopay/main/zanshang_zfb.png"/>
+
+## License
+
+```
+Copyright 2019 Jerry
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+```
