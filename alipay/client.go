@@ -155,10 +155,34 @@ func (a *Client) PostAliPayAPISelfV2(ctx context.Context, bm gopay.BodyMap, meth
 	if bs, err = a.doAliPaySelf(ctx, bm, method); err != nil {
 		return err
 	}
+
 	if err = json.Unmarshal(bs, aliRsp); err != nil {
 		return err
 	}
 	return nil
+}
+
+// PostAliPayAPISelfV2 支付宝接口自行实现方法
+// 注意：biz_content 需要自行通过bm.SetBodyMap()设置，不设置则没有此参数
+// 示例：请参考 client_test.go 的 TestClient_PostAliPayAPISelfV2() 方法
+func (a *Client) PostAliPayAPISelfV2ToBody(ctx context.Context, bm gopay.BodyMap, method string) (body []byte, err error) {
+	var (
+		bs, bodyBs []byte
+	)
+	// check if there is biz_content
+	bz := bm.GetInterface("biz_content")
+	if bzBody, ok := bz.(gopay.BodyMap); ok {
+		if bodyBs, err = json.Marshal(bzBody); err != nil {
+			return nil, fmt.Errorf("json.Marshal(%v)：%w", bzBody, err)
+		}
+		bm.Set("biz_content", string(bodyBs))
+	}
+
+	if bs, err = a.doAliPaySelf(ctx, bm, method); err != nil {
+		return nil, err
+	}
+
+	return bs, nil
 }
 
 // 向支付宝发送自定义请求
